@@ -102,14 +102,19 @@ public class LoginApplication {
             System.out.println("회원탈퇴를 할 수 없습니다.");
             return;
         }else {
-            for (int i=0; i<accountArray.length; i++){
+            for(int i=0; i<10; i++){
                 if((id).equals(accountArray[i].getId())&&(password).equals(accountArray[i].getPassword())){
+                    accountArray[i]=new User();
                     accountArray[i]=null;
+                    accountArray[i]=accountArray[i+1];
+                    accountArray[i+1]=null;
                     break;
+
                 }
             }
             System.out.println("회원탈퇴 되었습니다.");
-      }
+
+        }
     }
     private static User findLogin(String id, String password){
         User login_box = null;
