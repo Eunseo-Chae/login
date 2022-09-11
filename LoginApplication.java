@@ -103,7 +103,7 @@ public class LoginApplication {
             return;
         }else {
             for(int i=0; i<9; i++){
-                if(login_box.equals(accountArray[i])){
+                if(login_box==accountArray[i]){  //login_box.equals(accountArray[i])?
                     accountArray[i]=null;
                     System.out.println("회원탈퇴 되었습니다.");
                     while(accountArray[i]==null){
