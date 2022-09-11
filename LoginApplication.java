@@ -62,7 +62,7 @@ public class LoginApplication {
     }
 
     private static void accountList() {     //3번 사용자 조회
-        System.out.println("사용자 조회");
+        System.out.println("~사용자 조회~");
         for (User login_box : accountArray) {
             if (login_box != null) {
                 System.out.println("nickname:" + login_box.getNickname());
@@ -70,7 +70,7 @@ public class LoginApplication {
         }
     }
     private static void doLogin() {    //2번 로그인하기
-        System.out.println("로그인 하세요");
+        System.out.println("로그인 하세요.");
         System.out.print("id:");
         String id = scanner.next();
         System.out.print("password:");
@@ -102,18 +102,24 @@ public class LoginApplication {
             System.out.println("회원탈퇴를 할 수 없습니다.");
             return;
         }else {
-            for(int i=0; i<10; i++){
-                if((id).equals(accountArray[i].getId())&&(password).equals(accountArray[i].getPassword())){
-                    accountArray[i]=new User();
+            for(int i=0; i<9; i++){
+                if(login_box.equals(accountArray[i])){
                     accountArray[i]=null;
-                    accountArray[i]=accountArray[i+1];
-                    accountArray[i+1]=null;
+                    System.out.println("회원탈퇴 되었습니다.");
+                    while(accountArray[i]==null){
+                        for (int j=i; j<9; j++){
+                            accountArray[j]=accountArray[j+1];
+                            accountArray[j+1]=null;
+                        }
+                        break;
+                    }
                     break;
-
+                }
+                if(login_box.equals(accountArray[9])){
+                    accountArray[9]=null;
+                    break;
                 }
             }
-            System.out.println("회원탈퇴 되었습니다.");
-
         }
     }
     private static User findLogin(String id, String password){
