@@ -110,18 +110,19 @@ public class LoginApplication {
                         for (int j=i; j<9; j++){
                             accountArray[j]=accountArray[j+1];
                             accountArray[j+1]=null;
-                        }
+                            }
                         break;
+                        }
+                    break;
                     }
-                    break;
                 }
-                if(login_box.equals(accountArray[9])){
-                    accountArray[9]=null;
-                    break;
-                }
+            if(login_box.equals(accountArray[9])){
+                accountArray[9]=null;
+                System.out.println("회원탈퇴 되었습니다.");
             }
         }
     }
+
     private static User findLogin(String id, String password){
         User login_box = null;
         for (int i=0; i< accountArray.length; i++){
